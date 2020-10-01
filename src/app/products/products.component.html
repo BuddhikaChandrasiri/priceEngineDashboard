@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <h3>Products</h3>
+    <form>
+        <div class="form-row">
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Product Id</th>
+                  <th scope="col">Product Name</th>
+                  <th scope="col">Units per carton</th>
+                  <th scope="col">Carton price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of products">
+                  <td>{{product.id}}</td>
+                  <td>{{product.name}}</td>
+                  <td>{{product.unitsPerCarton}}</td>
+                  <td>{{product.price}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </form>
+    <form>
+        <div class="form-row">
+            <select class="custom-select" (change)="onCangeProductId($event.target.value)">
+                <option  value="">Select a product</option>
+                <option *ngFor="let product of products" value="{{product.id}}">{{product.name}}</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Carton price</th>
+                    <th scope="col">Units per carton</th>
+                    <th scope="col">Units</th>
+                    <th scope="col">Price for units</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let productPrice of priceSummary">
+                    <td>{{productPrice.productName}}</td>
+                    <td>{{productPrice.cartonPrice}}</td>
+                    <td>{{productPrice.unitsPerCarton}}</td>
+                    <td>{{productPrice.units}}</td>
+                    <td>{{productPrice.price}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </form>
+    <!-- <ul>
+        <li *ngFor="let product of products"> 
+            {{product.name}}
+        </li>
+    </ul> -->
+    
+</div>
